@@ -139,3 +139,26 @@ Apache 2.0
 - `src/styles/glassmorphism.css`
 
 Both components use hardcoded sample data, semantic sectioning, and reusable glassmorphism utility classes.
+
+- `src/components/GovernancePanel.tsx`
+- `src/components/ProofOfStakeNFTCards.tsx`
+- `server/fujiEventRelay.js`
+
+### Event Relay (Fuji WebSocket)
+
+Run real-time event relay for backend/WebSocket clients:
+
+```bash
+npm run events:relay
+```
+
+The relay listens to:
+- `StakeCreated`
+- `ProofMinted`
+- `VoteCast`
+- `TreasuryAllocated`
+- `ScoreUpdated`
+
+And broadcasts updates to connected WebSocket clients while keeping in-memory state snapshots at:
+- `GET /health`
+- `GET /state`

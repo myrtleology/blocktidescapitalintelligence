@@ -27,3 +27,17 @@
     @apply rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-100 transition hover:bg-white/15;
   }
 }
+
+@layer components {
+  .btci-status-badge {
+    @apply rounded-full border px-2.5 py-1 text-xs font-semibold;
+  }
+
+  .btci-badge-active {
+    @apply border-emerald-300/50 bg-emerald-400/20 text-emerald-100;
+  }
+
+  .btci-badge-inactive {
+    @apply border-slate-400/40 bg-slate-400/15 text-slate-200;
+  }
+}

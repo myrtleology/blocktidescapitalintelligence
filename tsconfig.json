@@ -9,5 +9,5 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "hardhat"]
   },
-  "include": ["./hardhat.config.ts", "./scripts", "./test", "./typechain-types"]
+  "include": ["./hardhat.config.ts", "./scripts", "./src", "./test", "./typechain-types"]
 }

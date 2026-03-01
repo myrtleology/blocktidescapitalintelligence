@@ -7,13 +7,17 @@
     "deploy:fuji": "hardhat run scripts/deploy.ts --network fuji",
     "update-score:fuji": "hardhat run scripts/updateScore.ts --network fuji",
     "simulate-flow:fuji": "hardhat run scripts/simulateStableFlow.ts --network fuji",
-    "verify:fuji": "hardhat run scripts/verify.ts --network fuji"
+    "verify:fuji": "hardhat run scripts/verify.ts --network fuji",
+    "events:relay": "node server/fujiEventRelay.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@openzeppelin/contracts": "^5.0.2",
     "dotenv": "^16.4.5",
+    "ethers": "^6.15.0",
+    "express": "^4.21.2",
     "hardhat": "^2.22.6",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "ws": "^8.18.0"
   }
 }
