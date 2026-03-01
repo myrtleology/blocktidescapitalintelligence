@@ -1,61 +1,75 @@
-**Block Tides Capital Intelligence (BTCI)** — Open-core capital coherence protocol. Public smart contracts anchor ecosystem risk scores while proprietary Krystalah engine computes deterministic capital intelligence.
-
 # Block Tides Capital Intelligence (BTCI)
 
-**BTCI** is an open-core capital coherence protocol.
+Complete Hardhat + Next.js TypeScript scaffold for BTCI protocol development on Avalanche Fuji.
 
-Public smart contracts anchor ecosystem-level risk scores on-chain, while the proprietary Krystalah engine computes deterministic capital intelligence off-chain.
+## Stack
 
----
+- Hardhat (TypeScript)
+- Solidity `0.8.20`
+- Ethers.js + `@nomicfoundation/hardhat-toolbox`
+- Next.js TypeScript frontend scaffold
 
-## Core Components
+## Contracts
 
-- On-chain score registry
-- Role-based oracle governance
-- Versioned score anchoring
-- Composable risk primitive
+- `contracts/ProofOfStakeNFT.sol` (ERC721 proof-of-stake NFT)
+- `contracts/BTCIStakingVault.sol` (stake + withdraw AVAX against NFT position)
+- `contracts/TreasuryPool.sol` (treasury deposit/owner-withdraw)
+- `contracts/BTCIRegistry.sol` (oracle score registry, capped at 1000)
 
----
+## Project Structure
 
-## Architecture Model
+- `hardhat.config.ts`
+- `scripts/deploy.ts`
+- `test/stakingVault.ts`
+- `pages/index.tsx`
+- `pages/_app.tsx`
+- `contracts/*.sol`
 
-BTCI follows an open-core architecture:
+## Setup
 
-- Smart contracts are public and verifiable.
-- The Krystalah scoring engine operates off-chain.
-- Scores are signed and anchored on-chain via authorized oracle governance.
+```bash
+npm install
+cp .env.example .env
+```
 
----
+Fill `.env`:
 
-## Scoring Framework
+```env
+FUJI_RPC_URL=https://your-quicknode-fuji-endpoint
+PRIVATE_KEY=your_wallet_private_key
+```
 
-Score Range: 0–1000
+## Compile
 
-Tier Bands:
-- Tier 1 — Structural Integrity (800–1000)
-- Tier 2 — Stable but Volatile (600–799)
-- Tier 3 — Risk Emerging (400–599)
-- Tier 4 — Structural Instability (<400)
+```bash
+npm run compile
+```
 
----
+## Run Tests
 
-## Governance Model (v0.1)
+```bash
+npm test
+```
 
-- ORACLE_ROLE controlled by 2-of-3 multisig
-- Block Tides operators + independent advisor
-- Version-controlled score updates
-- Upgrade path defined
+## Deploy to Avalanche Fuji
 
----
+```bash
+npm run deploy:fuji
+```
 
-## Roadmap
+The deploy script performs:
 
-Phase 1 — Avalanche ecosystem anchoring  
-Phase 2 — Subnet-level scoring  
-Phase 3 — Cross-chain coherence layer  
+1. Deploy `ProofOfStakeNFT`
+2. Deploy `BTCIStakingVault` with NFT address
+3. Deploy `TreasuryPool`
+4. Deploy `BTCIRegistry`
+5. Set vault in NFT contract
+6. Print all deployed addresses
 
----
+## Start Frontend Scaffold
 
-## License
+```bash
+npm run dev
+```
 
-Apache 2.0
+`pages/index.tsx` is intentionally minimal as a clean integration starting point.
