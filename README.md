@@ -48,11 +48,81 @@ Tier Bands:
 
 ---
 
+## Minimal Fuji Deployment Setup (Hardhat + TypeScript)
+
+### Project Structure
+
+- `hardhat.config.ts`
+- `contracts/BTCIRegistry.sol`
+- `scripts/deploy.ts`
+- `scripts/updateScore.ts`
+- `scripts/simulateStableFlow.ts`
+- `.env.example`
+
+### Install
+
+```bash
+npm install
+cp .env.example .env
+```
+
+### Configure `.env`
+
+- `FUJI_RPC_URL` → QuickNode Avalanche Fuji endpoint
+- `DEPLOYER_PRIVATE_KEY` → MetaMask private key
+- `ORACLE_ADDRESS` optional (defaults to deployer)
+
+### Deployment + Validation Steps
+
+1. Fund the MetaMask wallet using the QuickNode faucet.
+2. Deploy the registry:
+
+```bash
+npm run deploy:fuji
+```
+
+3. If additional gas is needed, use the Chainlink faucet for AVAX.
+4. Use Circle faucet for Fuji USDC.
+5. Set `BTCI_REGISTRY_ADDRESS` and `SUBJECT_ADDRESS` in `.env`.
+6. Update/query score:
+
+```bash
+npm run update-score:fuji
+```
+
+7. Simulate stablecoin flow + score bump (capped at 1000):
+
+```bash
+npm run simulate-flow:fuji
+```
+
+### Optional: Snowtrace Verification
+
+```bash
+npm run verify:fuji
+```
+
+### Example Output
+
+```text
+BTCIRegistry deployed to: 0x1234...abcd
+Deployment tx hash: 0x9fa9...3c2
+
+Score update tx hash: 0x12ab...77ef
+Updated score for 0xabc...def: 750
+
+Stable flow transfer tx hash: 0x85aa...9901
+Oracle score update tx hash: 0x66bc...82ff
+Final capped score for 0xabc...def: 1000
+```
+
+---
+
 ## Roadmap
 
-Phase 1 — Avalanche ecosystem anchoring  
-Phase 2 — Subnet-level scoring  
-Phase 3 — Cross-chain coherence layer  
+Phase 1 — Avalanche ecosystem anchoring
+Phase 2 — Subnet-level scoring
+Phase 3 — Cross-chain coherence layer
 
 ---
 
