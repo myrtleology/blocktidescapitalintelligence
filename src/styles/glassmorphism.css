@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btci-glass-panel {
+    @apply rounded-2xl border border-white/20 bg-white/10 shadow-xl shadow-black/20 backdrop-blur-xl;
+  }
+
+  .btci-section-title {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-slate-300;
+  }
+
+  .btci-value-label {
+    @apply text-2xl font-semibold text-white;
+  }
+
+  .btci-muted-copy {
+    @apply text-sm text-slate-300;
+  }
+
+  .btci-action-button {
+    @apply rounded-xl border border-sky-300/40 bg-sky-400/20 px-4 py-2 text-sm font-semibold text-sky-100 transition hover:bg-sky-400/35;
+  }
+
+  .btci-pill-button {
+    @apply rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-100 transition hover:bg-white/15;
+  }
+}

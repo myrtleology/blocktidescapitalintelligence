@@ -129,3 +129,13 @@ Phase 3 — Cross-chain coherence layer
 ## License
 
 Apache 2.0
+
+---
+
+## UI Components (React + Tailwind Glassmorphism)
+
+- `src/components/BTCIDashboardOverview.tsx`
+- `src/components/StakeCapitalModal.tsx`
+- `src/styles/glassmorphism.css`
+
+Both components use hardcoded sample data, semantic sectioning, and reusable glassmorphism utility classes.
